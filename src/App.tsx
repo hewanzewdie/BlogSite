@@ -6,12 +6,12 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignupPage";
 import MyBlogs from "./pages/MyBlogs";
 import Profile from "./pages/Profile";
-import Layout from "./components/layout";
+import Layoutx from "./components/Layoutx";
 
 function App() {
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route element={<Layoutx />}>
         <Route path="/" element={<Home />} />
         <Route path="/blogs/:category/:id" element={<BlogDetails />} />
         <Route
