@@ -1,28 +1,22 @@
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { useAuthStore } from "../..//src/store/AuthStore";
-import { useEffect, useState } from "react";
 import { LogOut, Menu, UserIcon, X, PenTool } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { getUser } from "..//api/auth";
 
-const Navbar = () => {
-      const { user, logout } = useAuthStore();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+type NavbarProps = {
+  isMenuOpen: boolean
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Navbar = ({ isMenuOpen, setIsMenuOpen }: NavbarProps) => {
+        const { user, logout } = useAuthStore();
 const { data } = useQuery({
     queryFn: () => getUser({ userId: user?.id! }),
     queryKey: ["user", user?.id],
   });
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   return (
     <>
     {!isMenuOpen && (
