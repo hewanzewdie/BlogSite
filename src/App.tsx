@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import BlogDetails from "./pages/BlogDetails";
-import Layout from "./components/layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignupPage";
 import MyBlogs from "./pages/MyBlogs";
 import Profile from "./pages/Profile";
+import Layout from "./components/layout";
 
 function App() {
   return (
